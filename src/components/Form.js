@@ -11,7 +11,7 @@ export default function Form(props) {
   const handleLowerClick = () => {
     setText(text.toLowerCase());
   };
-  const [text, setText] = useState("Enter text here");
+  const [text, setText] = useState("");
   return (
     <>
       <div className="container">
