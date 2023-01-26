@@ -1,9 +1,10 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 export default function Navbar(props) {
+  
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div style={{color:`${props.theme==="dark"?"white":"black"}`}}>
+      <nav className={`navbar navbar-expand-lg navbar-${props.theme} bg-${props.theme}`}>
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
             {props.title}
@@ -23,7 +24,7 @@ export default function Navbar(props) {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <a className="nav-link active" aria-current="page" href="/">
-                  Home
+                 <span className={`text-${props.theme==="dark"?"white":"black"}`}>Home</span> 
                 </a>
               </li>
               <li className="nav-item">
@@ -32,17 +33,18 @@ export default function Navbar(props) {
                 </a>
               </li>
             </ul>
-            <form className="d-flex" role="search">
+            <div className="form-check form-switch">
               <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
+                className="form-check-input"
+                type="checkbox"
+                role="switch"
+                onClick={props.toggle}
+                id="flexSwitchCheckDefault"
               />
-              <button className="btn btn-primary" type="submit">
-                Search
-              </button>
-            </form>
+              <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
+               Theme: {props.theme}
+              </label>
+            </div>
           </div>
         </div>
       </nav>
@@ -50,10 +52,10 @@ export default function Navbar(props) {
   );
 }
 
-Navbar.prototype = {title :PropTypes.string.isRequired}
-Navbar.prototype = {aboutText :PropTypes.string}
+Navbar.prototype = { title: PropTypes.string.isRequired };
+Navbar.prototype = { aboutText: PropTypes.string };
 
 Navbar.defaultProps = {
-    title:"Set title here",
-    aboutText:"About Text here"
-}
+  title: "Set title here",
+  aboutText: "About Text here",
+};
