@@ -7,9 +7,18 @@ export default function Form(props) {
   };
   const handleUpClick = () => {
     setText(text.toUpperCase());
+    props.showAlert("Converted to Upper case", "success");
   };
   const handleLowerClick = () => {
     setText(text.toLowerCase());
+    props.showAlert("Converted to Lower case", "success");
+  };
+  const handleCopy = () => {
+    var text = document.getElementById("myBox");
+    text.select();
+    text.setSelectionRange(0, 9999);
+    navigator.clipboard.writeText(text.value);
+    props.showAlert("Copied to clipboard", "success");
   };
   const [text, setText] = useState("");
   return (
@@ -20,6 +29,7 @@ export default function Form(props) {
           <textarea
             className="htmlForm-control"
             rows="5"
+            id="myBox"
             onChange={handleOnChange}
             value={text}
           />
@@ -29,6 +39,9 @@ export default function Form(props) {
         </button>
         <button className="btn btn-primary mx-2" onClick={handleLowerClick}>
           Convert to lower case
+        </button>
+        <button className="btn btn-primary mx-2" onClick={handleCopy}>
+          Copy
         </button>
       </div>
       <div className="container my-3">
