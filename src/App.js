@@ -19,9 +19,17 @@ function App() {
   const toggle = function () {
     if (theme === "dark") {
       setTheme("light");
+      document.title = "TextUtils Light Mode";
+      // setInterval(() => {
+      //   document.title = "TextUtils is Amazing";
+      // }, 1000);
+      // setInterval(() => {
+      //   document.title = "Install TextUtils";
+      // }, 1500);
       showAlert("Light Theme Enabled","success");
     } else {
       setTheme("dark");
+      document.title = "TextUtils Dark Mode";
       showAlert("Dark Theme Enabled","success");
     }
   };
