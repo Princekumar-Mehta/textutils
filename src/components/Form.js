@@ -47,9 +47,9 @@ export default function Form(props) {
       <div className="container my-3">
         <h1>Your Text Summary</h1>
         <p>
-          {text.split(" ").length} words, {text.length} characters
+          {text.split(" ").filter((element)=>{return element.length!==0;}).length} words, {text.length} characters
         </p>
-        <p>{0.08 * text.split(" ").length} Minutes required to read</p>
+        <p>{0.08 * text.split(" ").filter((element)=>{return element.length!==0;}).length} Minutes required to read</p>
         <h2>Preview</h2>
         <p>{text}</p>
       </div>
