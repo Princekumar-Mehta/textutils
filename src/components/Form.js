@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 export default function Form(props) {
+
   const handleOnChange = (event) => {
     console.log("on change");
     setText(event.target.value);
@@ -24,23 +25,24 @@ export default function Form(props) {
   return (
     <>
       <div className="container">
-        <h1>{props.heading}</h1>
-        <div className="mb-3">
+        <h3 className = "mb-3">{props.heading}</h3>
+        <div className="my-3">
           <textarea
             className="htmlForm-control"
             rows="5"
+            style={{width:"100%"}}
             id="myBox"
             onChange={handleOnChange}
             value={text}
           />
         </div>
-        <button className="btn btn-primary mx-2" onClick={handleUpClick}>
+        <button disabled={text.length===0} className="btn btn-primary mx-2" onClick={handleUpClick}>
           Convert to upper case
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleLowerClick}>
+        <button disabled={text.length===0} className="btn btn-primary mx-2" onClick={handleLowerClick}>
           Convert to lower case
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleCopy}>
+        <button disabled={text.length===0} className="btn btn-primary mx-2" onClick={handleCopy}>
           Copy
         </button>
       </div>
@@ -51,7 +53,7 @@ export default function Form(props) {
         </p>
         <p>{0.08 * text.split(" ").filter((element)=>{return element.length!==0;}).length} Minutes required to read</p>
         <h2>Preview</h2>
-        <p>{text}</p>
+        <p>{text.length>0?text:"Nothing to preview"}</p>
       </div>
     </>
   );

@@ -25,7 +25,7 @@ function App() {
   const toggle = function () {
     if (theme === "dark") {
       setTheme("light");
-      document.title = "TextUtils Light Mode";
+     // document.title = "TextUtils Light Mode";
       // setInterval(() => {
       //   document.title = "TextUtils is Amazing";
       // }, 1000);
@@ -35,7 +35,7 @@ function App() {
       showAlert("Light Theme Enabled", "success");
     } else {
       setTheme("dark");
-      document.title = "TextUtils Dark Mode";
+     // document.title = "TextUtils Dark Mode";
       showAlert("Dark Theme Enabled", "success");
     }
   };
@@ -53,7 +53,7 @@ function App() {
           <div className="container mb-8">
             <Routes>
               <Route exact path="/about" element={<About theme={theme} toggle={toggle} />}/>
-              <Route exact path="/" element = {<Form showAlert={showAlert} heading="Enter text here" />}/>
+              <Route exact path="/" element = {<Form showAlert={showAlert} heading="Try TextUtils Word Counter - Lower Case To Upper Case - Upper Case To Lower Case" />}/>
             </Routes>
           </div>
         </div>
