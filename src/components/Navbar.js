@@ -36,6 +36,11 @@ export default function Navbar(props) {
                 </Link>
               </li>
             </ul>
+            <div className="bg-dark rounded mx-2" onClick={()=>{props.toggle("dark")}} style={{width:'30px', height:'30px'}}></div>
+            <div className="bg-white rounded mx-2" onClick={()=>{props.toggle("white")}} style={{width:'30px', height:'30px'}}></div>
+            <div className="bg-danger rounded mx-2" onClick={()=>{props.toggle("danger")}} style={{width:'30px', height:'30px'}}></div>
+            <div className="bg-warning rounded mx-2" onClick={()=>{props.toggle("warning")}} style={{width:'30px', height:'30px'}}></div>
+            <div className="bg-success rounded mx-2" onClick={()=>{props.toggle("success")}} style={{width:'30px', height:'30px'}}></div>
             <div className="form-check form-switch">
               <input
                 className="form-check-input"

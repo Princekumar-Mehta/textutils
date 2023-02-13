@@ -22,7 +22,16 @@ function App() {
       setAlert(null);
     }, 1000);
   };
-  const toggle = function () {
+  const removeClass = ()=>{
+document.body.classList.remove("bg-dark");
+document.body.classList.remove("bg-white");
+document.body.classList.remove("bg-danger");
+document.body.classList.remove("bg-success");
+  }
+  const toggle = function (cls) {
+    removeClass();
+    console.log(cls);
+    document.body.classList.add("bg-"+cls);
     if (theme === "dark") {
       setTheme("light");
      // document.title = "TextUtils Light Mode";
@@ -42,7 +51,7 @@ function App() {
   return (
     <>
       <Router>
-        <div className={`bg-${theme === "dark" ? "white" : "black"}`}>
+        <div >
           <Navbar
             title="Navbar"
             aboutText="About Textutils"
